@@ -1,2 +1,3 @@
 # Emotion-recognition
-감정 인식 모델 개발
+
+SVM을 사용해 감정인식 모델 구현

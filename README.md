@@ -1,3 +1,3 @@
-# Emotion-recognition
+# 🧁 Emotion-recognition
 
-SVM을 사용해 감정인식 모델 구현
+MFCC를 사용해 특징 벡터를 추출하고, 이를 통해 SVM 모델을 학습시킨다.

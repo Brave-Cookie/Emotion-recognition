@@ -9,7 +9,7 @@ clf_from_joblib = joblib.load('C:/Users/NB1/Desktop/PROGRAM/GitWorkSpace/Capston
 # 데이터셋 있는곳 절대경로
 file_path = 'C:/Users/NB1/Desktop/PROGRAM/GitWorkSpace/CapstoneDesign_2021/Emotion-recognition/dataset/cut4/'
 # 테스트해볼 데이터셋 파일명
-file_names = 'cuts2_fear_M_f5_2.wav'
+file_names = 'cuts1_anger_M_a16_4.wav'
 file = file_path + file_names
 
 # 음성파일 전처리 진행 

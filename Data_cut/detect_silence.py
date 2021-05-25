@@ -1,5 +1,6 @@
 from pydub import AudioSegment,silence
 import librosa
+import soundfile as sf
 
 file_path = 'C:/Users/NB1/Desktop/PROGRAM/GitWorkSpace/CapstoneDesign_2021/Emotion-recognition/dataset/test_wav/'
 file_name = '1831732294.wav'
@@ -8,8 +9,8 @@ file = file_path + file_name
 # pydub로 묵음 구간 모두 추출
 myaudio = AudioSegment.from_wav(file)
 dBFS=myaudio.dBFS
-silence = silence.detect_silence(myaudio, min_silence_len=1000, silence_thresh=dBFS-16)
-silence = [((start/1000),(stop/1000)) for start,stop in silence] #in sec
+silence_section = silence.detect_silence(myaudio, min_silence_len=1000, silence_thresh=dBFS-16)
+silence_section = [((start/1000),(stop/1000)) for start,stop in silence_section] #in sec
 print(silence)
 
 
@@ -18,7 +19,7 @@ print(signal)
 
 # 묵음 구간을 없앤 실제 음성 구간 파싱
 section_list = []
-for start, end in silence:
+for start, end in silence_section:
     section_list.extend([start, end])
 section_list = section_list[1:-1]
 
@@ -36,3 +37,6 @@ for start, end in new_section:
 
 audio_len = librosa.get_duration(reform_signal, sr)
 print(audio_len)
+
+# 파일로 저장
+sf.write('temp.wav', reform_signal, sr, 'PCM_16')
